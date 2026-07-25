@@ -5,19 +5,12 @@
 var maxProfit = function(prices) {
     let mini = Number.MAX_SAFE_INTEGER
     let maxi = -1;
-    let maxDiff= -1;
+    let maxProfit = 0;
     for(const price of prices){
-        if(price < mini){
-            mini = price
-            maxi = mini 
-        }
-        else{
-            maxi = Math.max(price , maxi)
-        }
-        
-    maxDiff = Math.max(maxi - mini, maxDiff)
+       mini = Math.min(mini , price)
+       maxProfit = Math.max(maxProfit, price - mini);
         
     }
-    return maxDiff
+    return maxProfit
 
 };
