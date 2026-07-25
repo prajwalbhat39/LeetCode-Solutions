@@ -3,7 +3,7 @@
  * @return {number}
  */
 var maxProfit = function(prices) {
-    let mini = Number.MAX_SAFE_INTEGER
+    let mini = 100000
     let maxProfit = 0;
     for(const price of prices){
        mini = Math.min(mini , price)
