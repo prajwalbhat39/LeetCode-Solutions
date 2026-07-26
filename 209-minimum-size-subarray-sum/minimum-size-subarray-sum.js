@@ -4,21 +4,19 @@
  * @return {number}
  */
 var minSubArrayLen = function(target, nums) {
-    let i=0;
-    let temp =[]
+    let right=0;
+    let left = 0;
     tempSum = 0 ;
     let minLen = 1000000 ;
-    while( i <= nums.length){
+    while( right <= nums.length){
         if(tempSum < target){
-            tempSum += nums[i];
-            temp.push(nums[i])
-            i+=1
+            tempSum += nums[right];
+            right++;
         }else{
-            minLen = Math.min(minLen, temp.length)
-            let popped = temp.shift()
-            tempSum -= popped;
+            minLen = Math.min(minLen, right - left)
+            tempSum -= nums[left];
+            left++;
         }
-       
     }
     if(minLen ===  1000000){
         return 0;
