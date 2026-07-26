@@ -18,9 +18,6 @@ var minSubArrayLen = function(target, nums) {
             left++;
         }
     }
-    if(minLen ===  1000000){
-        return 0;
-    }else{
-        return minLen;
-    }
+   return minLen === 1000000 ? 0:minLen
+   
 };
