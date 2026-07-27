@@ -5,13 +5,13 @@
 var myAtoi = function(s) {
  function isDigit(char) {
         return char >= '0' && char <= '9';
-    }
+  }
   let result = 0;
-let sign = 1;
-let digitRead = false;
-let signRead = false;
+  let sign = 1;
+  let digitRead = false;
+  let signRead = false;
 
-for (let i = 0; i < s.length; i++) {
+  for (let i = 0; i < s.length; i++) {
 
     if (s[i] === " " && digitRead === false && signRead === false) {
         continue;
@@ -32,17 +32,17 @@ for (let i = 0; i < s.length; i++) {
     }
 
     break;
-}
+  }
 
-result *= sign;
+  result *= sign;
 
-if (result < -(2 ** 31)) {
+  if (result < -(2 ** 31)) {
     return -(2 ** 31);
-}
+  }
 
-if (result > (2 ** 31) - 1) {
+  if (result > (2 ** 31) - 1) {
     return (2 ** 31) - 1;
-}
+  }
 
-return result;
+  return result;
 };
