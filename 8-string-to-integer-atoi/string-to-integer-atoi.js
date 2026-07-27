@@ -6,7 +6,6 @@ var myAtoi = function(s) {
     function isDigit(char) {
         return char >= '0' && char <= '9';
     }
-
     let result = ""
     let digitRead = false
     let signRead = false
@@ -22,8 +21,6 @@ var myAtoi = function(s) {
         }else if((s[i] === "-" || s[i] === "+") &&  signRead === true && digitRead === true){
             break;
         }else if((s[i] === "-" || s[i] === "+") &&  signRead === true && digitRead === false){
-              result = ""
-              signRead = true;
               break;
         }else if(isDigit(s[i])){
 
