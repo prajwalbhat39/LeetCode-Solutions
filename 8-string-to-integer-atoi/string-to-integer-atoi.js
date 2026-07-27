@@ -13,7 +13,7 @@ var myAtoi = function(s) {
 
   for (let i = 0; i < s.length; i++) {
 
-    if (s[i] === " " && digitRead === false && signRead === false) {
+   if (s[i] === " " && digitRead === false && signRead === false) {
         continue;
     }
 
