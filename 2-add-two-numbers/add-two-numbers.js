@@ -40,7 +40,6 @@ var addTwoNumbers = function(l1, l2) {
             finResult.push(node);
             l2 = l2.next;
         }
-        // console.log(finResult);
     }
     if(l1 && l2){
         r = l1.val + l2.val + carry;
@@ -76,7 +75,6 @@ var addTwoNumbers = function(l1, l2) {
         }
        
     }
-    // console.log(finResult)
     let curr = finResult[0]
     for(let i = 0 ; i< finResult.length-1 ; i++){
         finResult[i].next = finResult[i+1]
