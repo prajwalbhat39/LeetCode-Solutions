@@ -11,7 +11,7 @@
  * @return {number[][]}
  */
 var levelOrder = function(root) {
-    result = []
+    let result = []
     var preOrderTraversal =function(root, level){
         if(root === null){
             return;
@@ -23,7 +23,7 @@ var levelOrder = function(root) {
             result[level].push(root.val);
         }
         preOrderTraversal(root.left, level+1);
-        preOrderTraversal(root.right , level +1);
+        preOrderTraversal(root.right , level+1);
         return ;
     }
     
