@@ -14,37 +14,24 @@
  */
 
 var lowestCommonAncestor = function(root, p, q) {
-    let parentsP= []
-    let parentsQ= [] 
-    let newNode = null;
-
-    var searchNode = function(root ,p , array) {
-        newNode =  new TreeNode(root.val)
-        array.push(newNode);
-
-        if(p.val< root.val){
-            searchNode(root.left , p , array)
-        }else if(p.val > root.val){
-            searchNode(root.right , p ,array);
-        }else{
-            return;
+    let result = null;
+    var searchNode = function( pointerP, pointerQ ,p , q) {
+        if(pointerP.val === pointerQ.val){
+            result = pointerP;
         }
-        return;
+       if(p.val < pointerP.val && q.val < pointerQ.val){
+         searchNode(pointerP.left , pointerQ.left , p , q)
+       }else if(p.val < pointerP.val && q.val > pointerQ.val){
+        searchNode(pointerP.left , pointerQ.right , p , q)
+       }else if(p.val > pointerP.val && q.val > pointerQ.val){
+        searchNode(pointerP.right , pointerQ.right , p , q)
+       }else if(p.val > pointerP.val && q.val < pointerQ.val){
+        searchNode(pointerP.right , pointerQ.left , p , q)
+       }
+        return ;
     }
     
-
-    searchNode(root , p , parentsP);
-    searchNode(root , q , parentsQ);
-
-    minLength = parentsP.length <= parentsQ.length ? parentsP.length : parentsQ.length;
-
-    let result = 0;
-    
-    for(i = 0 ; i<minLength ; i++){
-        if(parentsP[i].val === parentsQ[i].val){
-            result = parentsP[i]
-        }
-    }
+    searchNode(root ,root , p , q);
     return result;
     
 };
