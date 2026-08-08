@@ -21,12 +21,8 @@ var lowestCommonAncestor = function(root, p, q) {
         }
        if(p.val < pointerP.val && q.val < pointerQ.val){
          searchNode(pointerP.left , pointerQ.left , p , q)
-       }else if(p.val < pointerP.val && q.val > pointerQ.val){
-        searchNode(pointerP.left , pointerQ.right , p , q)
        }else if(p.val > pointerP.val && q.val > pointerQ.val){
         searchNode(pointerP.right , pointerQ.right , p , q)
-       }else if(p.val > pointerP.val && q.val < pointerQ.val){
-        searchNode(pointerP.right , pointerQ.left , p , q)
        }
         return ;
     }
