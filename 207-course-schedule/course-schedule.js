@@ -14,10 +14,8 @@ var canFinish = function(numCourses, prerequisites) {
     }
 
     let visited = new Array(numCourses).fill(0);
-    // console.log(adj)
+    
     var dfsIteration = function(element , adj){
-        // console.log(element);
-        // console.log(visited)
        if(visited[element] ===  2){
             return true;
         }
@@ -25,9 +23,7 @@ var canFinish = function(numCourses, prerequisites) {
         visited[element] = 1;
         console.log(visited)
         for(let course of adj[element]){
-            // console.log(adj[element])
             if(visited[course] === 1){
-                
                 return false;
             }else{
                 let temp = dfsIteration(course, adj)
