@@ -21,7 +21,6 @@ var canFinish = function(numCourses, prerequisites) {
         }
 
         visited[element] = 1;
-        console.log(visited)
         for(let course of adj[element]){
             if(visited[course] === 1){
                 return false;
