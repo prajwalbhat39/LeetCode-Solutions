@@ -27,8 +27,7 @@ MinStack.prototype.pop = function() {
     if(popped ===  this.minEle){
         let minPopped = this.minArray.pop();
         if(this.minArray.length>0){
-        this.minEle = this.minArray.pop();
-        this.minArray.push(this.minEle);
+        this.minEle = this.minArray[this.minArray.length-1];
         }else{
         this.minEle = Infinity;
         }
@@ -40,9 +39,7 @@ MinStack.prototype.pop = function() {
  * @return {number}
  */
 MinStack.prototype.top = function() {
-     let popped = this.array.pop()
-     this.array.push(popped)
-     return popped;
+     return this.array[this.array.length-1]
 };
 
 /**
