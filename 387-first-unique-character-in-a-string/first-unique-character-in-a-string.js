@@ -3,22 +3,28 @@
  * @return {number}
  */
 var firstUniqChar = function(s) {
-    let map = new Map();
-    for(let string of s ){
-        if(map.has(string)){
-            let temp = map.get(string);
-            temp+=1;
-            map.set(string ,temp);
-        }else{
-            map.set(string, 1);
+    let indexMap = new Map();
+    let occurrenceMap = new Map();
+
+    for (let i = 0; i < s.length; i++) {
+        let char = s[i];
+
+        if (!indexMap.has(char)) {
+            indexMap.set(char, i);
+        }
+
+        if (occurrenceMap.has(char)) {
+            occurrenceMap.set(char, occurrenceMap.get(char) + 1);
+        } else {
+            occurrenceMap.set(char, 1);
         }
     }
-    for (let ele of map) {
-        if (map.get(ele[0]) === 1) {
-            return s.indexOf(ele[0]);
+
+    for (let [char, count] of occurrenceMap) {
+        if (count === 1) {
+            return indexMap.get(char);
         }
     }
 
     return -1;
-    
 };
