@@ -79,9 +79,7 @@ while(num % 1000 > 0 || Math.floor(num /1000) != 0){
     }
     if(numberMap[temp]){
         tempString +=  numberMap[temp];
-        if(count > 0){
-            tempString += " "
-        }
+        tempString+= " "
     }
     if(magnitudeMap[count] && (hundredsPlace > 0 || tensPlace>0 || temp>0)){
         tempString += magnitudeMap[count];
