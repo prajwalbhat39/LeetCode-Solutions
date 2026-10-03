@@ -20,6 +20,7 @@ var search = function(nums, target) {
      return -1;
     }
     let n= nums.length;
+    let k = -1
     if( nums[0] <= nums[n-1]){
         let answer  = binarySearch(0, n-1 , nums , target);
         return answer ;
@@ -27,10 +28,11 @@ var search = function(nums, target) {
     for(let i= n -1 ; i>= 0 ; i--){
         if(nums[i-1] > nums[i]){
             k=i;
+            break;
         }
     }
-    it1= -1;
-    it2= -1;
+    let it1= -1;
+    let it2= -1;
 
     it1 = binarySearch(k , n-1 , nums , target)
     it2 = binarySearch(0 , k-1 , nums , target)
